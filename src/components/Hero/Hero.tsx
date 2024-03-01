@@ -13,11 +13,9 @@ export default function Hero() {
       <div className="flex flex-col items-center justify-center">
         <h1 className="font-bold font-spacegrotesk text-xl md:text-3xl lg:text-5xl text-white text-center">
           Olá, me chamo
-          <span className="text-orange-500 mx-1.5 md:mx-3">Elemar Leonel</span>
-          e <br /> atuo como
-          <span className="text-orange-500 mx-1.5 md:mx-3">
-            Desenvolvedor Fullstack
-          </span>
+          <span className="text-orange-500"> Elemar Leonel </span>
+          e <br /> atuo como 
+          <span className="text-orange-500"> Desenvolvedor Fullstack </span>
         </h1>
       </div>
 
