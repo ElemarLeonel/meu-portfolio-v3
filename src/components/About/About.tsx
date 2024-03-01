@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Elemar from "/public/elemar.webp";
+import Elemar from "/public/images/elemar.webp";
 import { breakText } from "@/app/_utils/functions";
 import Link from "next/link";
 import { getProfile } from "@/app/_services/notion";

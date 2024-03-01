@@ -2,7 +2,7 @@ import Header from "@/components/Header/Header";
 import About from "@/components/About/About";
 import Hero from "@/components/Hero/Hero";
 
-import BgHero from "/public/bg-hero.webp";
+import BgHero from "/public/images/bg-hero.webp";
 import Solutions from "@/components/Solutions/Solutions";
 
 export default function Home() {
