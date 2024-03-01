@@ -15,9 +15,9 @@ export default async function About() {
     <section className="bg-gradient-to-tr from-blue-700 to-blue-800 flex flex-col-reverse md:flex-row items-start py-32 md:py-48 justify-center relative">
       <div className="flex flex-col justify-center items-center md:items-start container gap-6 px-5 md:px-10 mb-[40rem] md:mb-0">
         <div className="max-w-md lg:max-w-lg flex flex-col gap-8">
-          <h1 className="font-bold font-spacegrotesk text-3xl md:text-5xl text-orange-500 text-center lg:text-start">
+          <h2 className="font-bold font-spacegrotesk text-3xl md:text-5xl text-orange-500 text-center lg:text-start">
             Minha história
-          </h1>
+          </h2>
 
           {breakText(history).map((paragraph, index) => (
             <p
