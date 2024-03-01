@@ -1,4 +1,4 @@
-export interface Root {
+export interface Profile {
   github: Github
   years_of_experience: YearsOfExperience
   image_history: ImageHistory
