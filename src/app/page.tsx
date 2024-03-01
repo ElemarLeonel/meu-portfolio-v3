@@ -19,6 +19,7 @@ export default function Home() {
       </div>
       {/* @ts-expect-error Server Component */}
       <About />
+      {/* @ts-expect-error Server Component */}
       <Solutions />
     </main>
   );
