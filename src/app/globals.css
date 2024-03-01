@@ -5,3 +5,7 @@
 .transitions {
   @apply transition-all duration-300 ease-in-out;
 }
+
+.border-text {
+  -webkit-text-stroke: 1.5px #dab785;
+}
