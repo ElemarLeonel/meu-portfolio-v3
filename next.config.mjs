@@ -4,7 +4,13 @@ const { AMAZON_FILES_S3_URL } = process.env;
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [AMAZON_FILES_S3_URL, "http://localhost:3000"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: AMAZON_FILES_S3_URL,
+        pathname: "**",
+      },
+    ],
     formats: ["image/avif", "image/webp"],
   },
 };
