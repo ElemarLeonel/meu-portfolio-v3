@@ -13,11 +13,11 @@ export default function Hero() {
       <div className="flex flex-col items-center justify-center">
         <h1 className="font-bold font-spacegrotesk text-xl md:text-3xl lg:text-5xl text-white text-center">
           Olá, me chamo
-          <strong className="text-orange-500">&nbsp; Elemar Leonel</strong>
-          &nbsp; e <br /> atuo como
-          <strong className="text-orange-500">
-            &nbsp; &nbsp;Desenvolvedor Fullstack
-          </strong>
+          <span className="text-orange-500 mx-1.5 md:mx-3">Elemar Leonel</span>
+          e <br /> atuo como
+          <span className="text-orange-500 mx-1.5 md:mx-3">
+            Desenvolvedor Fullstack
+          </span>
         </h1>
       </div>
 
@@ -30,6 +30,7 @@ export default function Hero() {
           Currículo
           <i className="ri-file-download-line text-blue-500 hover:text-blue-800 hover:animate-bounce cursor-pointer" />
         </Button>
+        {/* @ts-expect-error Server Component */}
         <SocialIcons />
       </div>
     </section>
