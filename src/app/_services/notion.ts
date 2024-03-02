@@ -1,3 +1,4 @@
+import { ObjectNotion } from "../_types/objectNotion";
 import { Profile } from "../_types/profile";
 import { SolutionList } from "../_types/solution";
 import { handleNotionError } from "./notionErrorHandler";
@@ -38,7 +39,7 @@ export async function getSolutions() {
       }
     });
 
-    const solutions = response.results.map((solution: SolutionList) => solution.properties);
+    const solutions = response.results.map((solution: ObjectNotion) => solution.properties);
     return solutions;
 
   } catch (error: unknown) {
