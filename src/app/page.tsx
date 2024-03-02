@@ -4,6 +4,7 @@ import Hero from "@/components/Hero/Hero";
 
 import BgHero from "/public/images/bg-hero.webp";
 import Solutions from "@/components/Solutions/Solutions";
+import Techs from "@/components/Techs/Techs";
 
 export default function Home() {
   return (
@@ -21,6 +22,8 @@ export default function Home() {
       <About />
       {/* @ts-expect-error Server Component */}
       <Solutions />
+      {/* @ts-expect-error Server Component */}
+      <Techs />
     </main>
   );
 }

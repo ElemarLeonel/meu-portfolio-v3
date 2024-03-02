@@ -1,6 +1,6 @@
 import { ObjectNotion } from "../_types/objectNotion";
 import { Profile } from "../_types/profile";
-import { SolutionList } from "../_types/solution";
+import { Tech } from "../_types/tech";
 import { handleNotionError } from "./notionErrorHandler";
 
 const { Client } = require("@notionhq/client");
@@ -41,6 +41,34 @@ export async function getSolutions() {
 
     const solutions = response.results.map((solution: ObjectNotion) => solution.properties);
     return solutions;
+
+  } catch (error: unknown) {
+    handleNotionError(error);
+
+    return null;
+  }
+}
+
+export async function getTechs() {
+  try {
+    const databaseId = "c13d4e06-ade5-43a2-8009-88986f8d28bf";
+
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      filter: {
+        property: "active",
+        checkbox: {equals: true},
+      },
+      sorts: [
+        {
+          property: "order",
+          direction: "ascending",
+        }
+      ]
+    });
+
+    const techs = response.results.map((tech: ObjectNotion) => tech.properties);
+    return techs;
 
   } catch (error: unknown) {
     handleNotionError(error);
