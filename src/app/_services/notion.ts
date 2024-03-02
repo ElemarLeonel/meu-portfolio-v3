@@ -32,7 +32,6 @@ export async function getSolutions() {
 
     const response = await notion.databases.query({
       database_id: databaseId,
-      page_size: 100,
       filter: {
         property: "active",
         checkbox: {equals: true},
