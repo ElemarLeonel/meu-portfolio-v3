@@ -8,7 +8,7 @@ export default async function SocialIcons() {
   const instagram = profile?.instagram.rich_text[0]?.text.content;
 
   return (
-    <div className="flex flex-row gap-4 ml-0 sm:ml-16">
+    <div className="flex flex-row gap-4 ml-0">
       <a href={`https://github.com/${github || "elemarleonel"}`}>
         <i className="ri-github-line ri-2x text-orange-500 hover:text-orange-800 hover:animate-pulse cursor-pointer"></i>
       </a>
