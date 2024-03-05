@@ -13,7 +13,7 @@ export default async function Projects() {
           <i className="ri-flashlight-fill ri-3xl bg-gradient-to-b from-orange-500 to-orange-400 bg-clip-text text-transparent"></i>
           Top 3 projetos
         </Badge>
-        <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white mt-12">
+        <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white mt-12 text-center md:text-start">
           Projetos desenvolvidos
         </h2>
         <div className="flex flex-col items-center justify-center gap-16 mt-20">
