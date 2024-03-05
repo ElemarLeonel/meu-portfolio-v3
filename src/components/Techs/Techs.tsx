@@ -21,7 +21,7 @@ export default async function Techs() {
         {techs.map((tech: Tech, index: number) => (
           <div
             key={index}
-            className="bg-blue-900 flex flex-col items-center justify-center gap-10 px-[100px] py-[72px] max-w-[270px] 
+            className="bg-blue-900 flex flex-col items-center justify-center gap-10 px-0 md:px-[100px] py-[72px] min-w-[200px] max-w-[270px] 
           border-2 border-blue-900 hover:border-orange-500 rounded-[10px] hover:drop-shadow-tech"
           >
             <Image
