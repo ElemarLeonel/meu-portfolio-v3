@@ -14,7 +14,7 @@ export default function Hero() {
         <h1 className="font-bold font-spacegrotesk text-xl md:text-3xl lg:text-5xl text-white text-center">
           Olá, me chamo
           <span className="text-orange-500"> Elemar Leonel </span>
-          e <br /> atuo como 
+          e <br /> atuo como
           <span className="text-orange-500"> Desenvolvedor Fullstack </span>
         </h1>
       </div>
@@ -28,7 +28,6 @@ export default function Hero() {
           Currículo
           <i className="ri-file-download-line text-blue-500 hover:text-blue-800 hover:animate-bounce cursor-pointer" />
         </Button>
-        {/* @ts-expect-error Server Component */}
         <SocialIcons />
       </div>
     </section>

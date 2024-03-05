@@ -20,7 +20,7 @@ export function Project({ project }: ProjectProps) {
         src={project.image.files[0].file.url || ImageProject.src}
         width={400}
         height={400}
-        alt={project.title.title[0].plain_text}
+        alt={project.title.title[0]?.plain_text}
         className="w-full max-w-sm h-auto rounded-md"
       />
       <div className="flex flex-col items-start justify-center">
