@@ -8,7 +8,7 @@ export default async function Techs() {
   return (
     <section className="flex flex-col items-center justify-center bg-blue-600 py-20 px-10">
       <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center gap-[30px]">
-        <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white">
+        <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white text-center">
           Tecnologias que <span className="text-orange-500">utilizo</span>
         </h2>
         <p className="font-circularstd text-ivory-white/60 text-base text-center max-w-[950px]">
