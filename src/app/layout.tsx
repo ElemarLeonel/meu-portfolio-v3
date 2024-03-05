@@ -4,14 +4,14 @@ import localFont from "next/font/local";
 import "remixicon/fonts/remixicon.css";
 import "./globals.css";
 
-export const sg = Space_Grotesk({
+const sg = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-space-grotesk",
   weight: ["400", "500", "700"],
 });
 
-export const cs = localFont({
+const cs = localFont({
   src: [
     {
       path: "../../public/fonts/CircularStd-Book.otf",
@@ -48,8 +48,23 @@ export const cs = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Portfólio Elemar Leonel Desenvolvedor",
+  title: "%s | Elemar Leonel",
   description: "Meu portfólio como desenvolvedor",
+  keywords: ["desenvolvedor", "frontend", "backend", "ui/ux", "portfolio"],
+  authors: [{ name: "Elemar Leonel" }],
+  creator: "Elemar Leonel",
+  publisher: "Elemar Leonel",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -58,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`${sg.variable} ${cs.variable}`}>{children}</body>
     </html>
   );
