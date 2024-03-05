@@ -6,6 +6,7 @@ import Solutions from "@/components/Solutions/Solutions";
 import Techs from "@/components/Techs/Techs";
 import Projects from "@/components/Projects/Projects";
 import BgHero from "/public/images/bg-hero.webp";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -27,6 +28,7 @@ export default function Home() {
       <Solutions />
       <Techs />
       <Projects />
+      <Footer />
     </main>
   );
 }
