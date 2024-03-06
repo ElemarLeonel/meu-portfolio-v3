@@ -25,7 +25,7 @@ export default async function Techs() {
           border-2 border-blue-900 hover:border-orange-500 rounded-[10px] hover:drop-shadow-tech"
           >
             <Image
-              src={tech.icon.files[0].file.url}
+              src={tech.icon.files[0]?.file.url}
               alt={tech.name.title[0].plain_text}
               width={72}
               height={72}
