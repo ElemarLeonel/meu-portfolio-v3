@@ -8,17 +8,16 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
-export async function getProfile(): Promise<Profile|null> {
+export async function getProfile(): Promise<Profile | null> {
   try {
     const databaseId = "faa80a0a-571e-436f-b481-cc3d5566f5db";
     const response = await notion.databases.query({
       database_id: databaseId,
       page_size: 1,
     });
-    
+
     const profile = response.results[0].properties;
     return profile;
-
   } catch (error: unknown) {
     handleNotionError(error);
 
@@ -34,13 +33,14 @@ export async function getSolutions() {
       database_id: databaseId,
       filter: {
         property: "active",
-        checkbox: {equals: true},
-      }
+        checkbox: { equals: true },
+      },
     });
 
-    const solutions = response.results.map((solution: ObjectNotion) => solution.properties);
+    const solutions = response.results.map(
+      (solution: ObjectNotion) => solution.properties
+    );
     return solutions;
-
   } catch (error: unknown) {
     handleNotionError(error);
 
@@ -56,19 +56,18 @@ export async function getTechs() {
       database_id: databaseId,
       filter: {
         property: "active",
-        checkbox: {equals: true},
+        checkbox: { equals: true },
       },
       sorts: [
         {
           property: "order",
           direction: "ascending",
-        }
-      ]
+        },
+      ],
     });
 
     const techs = response.results.map((tech: ObjectNotion) => tech.properties);
     return techs;
-
   } catch (error: unknown) {
     handleNotionError(error);
 
@@ -84,13 +83,43 @@ export async function getProjects() {
       database_id: databaseId,
       filter: {
         property: "active",
-        checkbox: {equals: true},
-      }
+        checkbox: { equals: true },
+      },
     });
 
-    const projects = response.results.map((project: ObjectNotion) => project.properties);
+    const projects = response.results.map(
+      (project: ObjectNotion) => project.properties
+    );
 
     return projects;
+  } catch (error: unknown) {
+    handleNotionError(error);
+
+    return null;
+  }
+}
+
+export async function getPosts(): Promise<ObjectNotion[] | null> {
+  try {
+    const databaseId = "eb004556-aa8c-4cd9-af72-a4d2b77d035b";
+
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      filter: {
+        property: "active",
+        checkbox: { equals: true },
+      },
+      sorts: [
+        {
+          property: "published_date",
+          direction: "descending",
+        },
+      ],
+    });
+
+    const posts = response.results.map((post: ObjectNotion) => post.properties);
+
+    return posts;
   } catch (error: unknown) {
     handleNotionError(error);
 
