@@ -7,3 +7,12 @@ export function breakText(text: string | undefined): string[] {
   });
   return paragraphs || [];
 }
+
+export function convertDate(date: string) {
+  const newDate = new Date(date);
+  return newDate.toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
