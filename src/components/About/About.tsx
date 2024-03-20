@@ -8,8 +8,8 @@ import { getProfile } from "@/app/_services/notion";
 export default async function About() {
   const profile = await getProfile();
 
-  const history = profile?.history.rich_text[0].plain_text;
-  const phone = profile?.phone.rich_text[0].plain_text;
+  const history = profile?.history.rich_text[0]?.plain_text;
+  const phone = profile?.phone.rich_text[0]?.plain_text;
 
   return (
     <section className="bg-gradient-to-tr from-blue-700 to-blue-800 flex flex-col-reverse md:flex-row items-start py-10 sm:py-32 md:py-48 justify-center relative">
