@@ -70,7 +70,7 @@ export default async function About() {
               size={"md"}
               className="font-spacegrotesk text-base"
             >
-              <Link href={`https://api.whatsapp.com/send?phone=${phone}`}>
+              <Link href={`https://api.whatsapp.com/send?phone=${phone || ""}`}>
                 Entre em contato
               </Link>
             </Button>
