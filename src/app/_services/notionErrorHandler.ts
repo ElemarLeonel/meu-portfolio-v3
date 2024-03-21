@@ -1,5 +1,8 @@
-// NotionErrorHandler.ts
-import { isNotionClientError, ClientErrorCode, APIErrorCode } from "@notionhq/client";
+import {
+  isNotionClientError,
+  ClientErrorCode,
+  APIErrorCode,
+} from "@notionhq/client";
 
 export function handleNotionError(error: unknown) {
   if (isNotionClientError(error)) {
