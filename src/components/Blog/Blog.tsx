@@ -30,12 +30,15 @@ export default async function Blog() {
                 key={index}
                 className="flex flex-col items-center justify-start max-w-[570px] w-full"
               >
-                <Image
-                  src={post.image.files[0].file.url}
-                  alt={`Imagem do post ` + post.title.title[0].plain_text}
-                  width={570}
-                  height={570}
-                />
+                <div className="flex flex-col items-center justify-center">
+                  <Image
+                    src={post.image.files[0].file.url}
+                    alt={`Imagem do post ` + post.title.title[0].plain_text}
+                    className="h-[400px] object-cover object-center"
+                    width={570}
+                    height={400}
+                  />
+                </div>
                 <div className="flex items-center justify-between w-full mt-12 mb-10 px-1.5">
                   <span className="bg-blue-900 rounded-full px-6 py-3 uppercase text-white font-bold font-circularstd">
                     {post.category.select.name}
