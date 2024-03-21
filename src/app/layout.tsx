@@ -74,7 +74,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${sg.variable} ${cs.variable}`}>{children}</body>
+      <body
+        suppressHydrationWarning={true}
+        className={`${sg.variable} ${cs.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
