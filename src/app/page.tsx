@@ -25,15 +25,10 @@ export default function Home() {
         <Header />
         <Hero />
       </div>
-      {/* @ts-expect-error Async Server Component */}
       <About />
-      {/* @ts-expect-error Async Server Component */}
       <Solutions />
-      {/* @ts-expect-error Async Server Component */}
       <Techs />
-      {/* @ts-expect-error Async Server Component */}
       <Projects />
-      {/* @ts-expect-error Async Server Component */}
       <Blog />
       <Footer />
     </main>
