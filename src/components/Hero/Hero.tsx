@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="flex flex-row flex-wrap items-center justify-center gap-16">
         <Button
           variant={"default"}
-          className="drop-shadow-button inline-flex items-center justify-center gap-3 px-8 py-8 
+          className="hover:drop-shadow-button inline-flex items-center justify-center gap-3 px-8 py-8 
             text-lg md:text-2xl text-blue-500 font-circularstd font-bold uppercase rounded-sm"
         >
           Currículo
