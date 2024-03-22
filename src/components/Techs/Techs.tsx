@@ -9,7 +9,7 @@ export default async function Techs() {
   if (techs?.length !== 0) {
     return (
       <section className="flex flex-col items-center justify-center bg-blue-600 py-20 px-10">
-        <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center gap-[30px]">
+        <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center gap-4 lg:gap-[30px]">
           <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white text-center">
             Tecnologias que <span className="text-orange-500">utilizo</span>
           </h2>
@@ -23,7 +23,7 @@ export default async function Techs() {
           {techs.map((tech: Tech, index: number) => (
             <div
               key={index}
-              className="bg-blue-900 flex flex-col items-center justify-center gap-10 px-0 md:px-[100px] py-[72px] min-w-[200px] max-w-[270px] 
+              className="bg-blue-900 flex flex-col items-center justify-center gap-10 px-0 md:px-[100px] py-[72px] min-w-[250px] 
           border-2 border-blue-900 hover:border-orange-500 rounded-[10px] hover:drop-shadow-tech"
             >
               <Image
