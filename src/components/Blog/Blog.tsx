@@ -12,7 +12,7 @@ export default async function Blog() {
     return (
       <section className="bg-blue-600 py-20 px-10 rounded-tl-[200px] rounded-br-[200px] mt-16">
         <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center">
-          <div className="flex flex-row items-center justify-between w-full mt-36">
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between w-full mt-36 gap-3 sm:gap-0">
             <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white">
               Artigos <span className="text-orange-500">&</span> Novidades
             </h2>
@@ -24,7 +24,7 @@ export default async function Blog() {
             </Button>
           </div>
 
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-[30px] place-items-center mt-36 w-full">
+          <ul className="flex items-center justify-between gap-[30px] justify-items-center mt-36 w-full">
             {posts?.map((post: Post | any, index: number) => (
               <li
                 key={index}
@@ -39,7 +39,7 @@ export default async function Blog() {
                     height={400}
                   />
                 </div>
-                <div className="flex items-center justify-between w-full mt-12 mb-10 px-1.5">
+                <div className="flex flex-col-reverse sm:flex-row items-center justify-center sm:justify-between w-full mt-12 mb-10 px-1.5 gap-2.5 sm:gap-0">
                   <span className="bg-blue-900 rounded-full px-6 py-3 uppercase text-white font-bold font-circularstd">
                     {post.category.select.name}
                   </span>
@@ -47,12 +47,12 @@ export default async function Blog() {
                     {convertDate(post.published_date.date.start)}
                   </span>
                 </div>
-                <h3 className="font-bold font-spacegrotesk text-ivory-white text-start text-2xl mb-10">
+                <h3 className="font-bold font-spacegrotesk text-ivory-white text-2xl mb-10 text-center sm:text-start">
                   {post.title.title[0].plain_text}
                 </h3>
                 <Link
                   href={`/blog/${post.slug.rich_text[0].plain_text}`}
-                  className="inline-flex items-center justify-center self-start gap-3 font-circularstd font-normal text-2xl text-orange-500 hover:underline"
+                  className="inline-flex items-center justify-center self-center sm:self-start gap-3 font-circularstd font-normal text-xl text-orange-500 hover:underline"
                 >
                   Saiba mais
                 </Link>
