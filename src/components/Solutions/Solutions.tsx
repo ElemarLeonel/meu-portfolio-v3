@@ -25,10 +25,10 @@ export default async function Solutions() {
                 className="flex flex-col items-start justify-center space-y-5 bg-transparent hover:bg-blue-600 py-6 px-4 rounded-md transitions max-w-full md:max-w-[270px] border-2 border-blue-600"
               >
                 <Image
-                  src={IconPage.src}
+                  src={solution.icon.files[0]?.file.url || IconPage.src}
                   alt={`Solução ` + solution.name.title[0].plain_text}
                   width={36}
-                  height={32}
+                  height={36}
                 />
                 <h3 className="font-bold font-circularstd text-ivory-white text-base leading-7 tracking-[7%] uppercase">
                   {solution.name.title[0].plain_text}
