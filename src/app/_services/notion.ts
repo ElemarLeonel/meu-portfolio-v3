@@ -40,7 +40,6 @@ export async function getSolutions() {
     const solutions = response.results.map(
       (solution: ObjectNotion) => solution.properties
     );
-    console.log(solutions);
     return solutions;
   } catch (error: unknown) {
     handleNotionError(error);

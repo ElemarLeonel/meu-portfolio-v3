@@ -3,12 +3,17 @@ import Image from "next/image";
 import Elemar from "/public/images/elemar.webp";
 import { breakText } from "@/app/_utils/functions";
 import Link from "next/link";
-import { getProfile } from "@/app/_services/notion";
 
 export default async function About() {
-  const profile = await getProfile();
+
+  const profile = await fetch(`${process.env.APP_URL}/api/profile`)
+    .then((res) => res.json()
+    .catch((err) => console.log(err)));
 
   const history = profile?.history.rich_text[0]?.plain_text;
+  const yearsOfExperience = profile?.years_of_experience.number;
+  const projectsDeveloped = profile?.projects_developed.number;
+  const certificationsCarriedOut = profile?.certifications_carried_out.number;
   const phone = profile?.phone.rich_text[0]?.plain_text;
 
   return (
@@ -34,7 +39,7 @@ export default async function About() {
                 className="bg-gradient-to-t from-orange-500 to-orange-300 
           inline-block text-transparent bg-clip-text font-spacegrotesk font-bold text-3xl md:text-5xl text-center"
               >
-                +{profile?.years_of_experience.number || 0}
+                +{yearsOfExperience || 0}
               </span>
               <p className="font-circularstd font-normal text-ivory-white/60 text-sm text-center whitespace-nowrap">
                 anos de experiência
@@ -45,7 +50,7 @@ export default async function About() {
                 className="bg-gradient-to-t from-orange-500 to-orange-300 
           inline-block text-transparent bg-clip-text font-spacegrotesk font-bold text-3xl md:text-5xl text-center"
               >
-                +{profile?.projects_developed.number || 0}
+                +{projectsDeveloped || 0}
               </span>
               <p className="font-circularstd font-normal text-ivory-white/60 text-sm text-center whitespace-nowrap">
                 projetos desenvolvidos
@@ -56,7 +61,7 @@ export default async function About() {
                 className="bg-gradient-to-t from-orange-500 to-orange-300 
           inline-block text-transparent bg-clip-text font-spacegrotesk font-bold text-3xl md:text-5xl text-center"
               >
-                +{profile?.certifications_carried_out.number || 0}
+                +{certificationsCarriedOut || 0}
               </span>
               <p className="font-circularstd font-normal text-ivory-white/60 text-sm text-center whitespace-nowrap">
                 certificações realizadas

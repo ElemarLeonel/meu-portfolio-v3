@@ -8,6 +8,8 @@ import Projects from "@/components/Projects/Projects";
 import BgHero from "/public/images/bg-hero.webp";
 import Footer from "@/components/Footer/Footer";
 import Blog from "@/components/Blog/Blog";
+import Head from "next/head";
+import Favicon from "./favicon.ico";
 
 export const metadata: Metadata = {
   title: "Home",
