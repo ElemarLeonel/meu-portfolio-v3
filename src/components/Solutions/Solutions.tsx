@@ -5,9 +5,11 @@ import IconPage from "/public/images/icon-page.svg";
 import EmptyState from "../Errors/EmptyState";
 
 export default async function Solutions() {
-  const solutions = await getSolutions();
+  const solutions = await fetch(`${process.env.APP_URL}/api/solutions`)
+    .then((res) => res.json()
+    .catch((err) => console.log(err)));
 
-  if (solutions?.length !== 0) {
+  if (solutions) {
     return (
       <section className="px-10 py-20 md:py-48 relative flex flex-col xl:flex-row items-center justify-center gap-10 lg:gap-0">
         <div className="max-w-6xl mx-auto flex flex-col xl:flex-row items-start justify-between gap-16 lg:gap-[30px] mb-10">
