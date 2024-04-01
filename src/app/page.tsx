@@ -8,8 +8,7 @@ import Projects from "@/components/Projects/Projects";
 import BgHero from "/public/images/bg-hero.webp";
 import Footer from "@/components/Footer/Footer";
 import Blog from "@/components/Blog/Blog";
-import Head from "next/head";
-import Favicon from "./favicon.ico";
+import ScrollToTopButton from "@/components/ScrollToTopButton/ScrollToTopButton";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-blue-900 w-full">
+    <main className="bg-blue-900 w-full relative">
       <div
         className="w-full h-full"
         style={{
@@ -33,6 +32,7 @@ export default function Home() {
       <Projects />
       <Blog />
       <Footer />
+      <ScrollToTopButton />
     </main>
   );
 }
