@@ -7,6 +7,6 @@ export async function GET() {
     
     return NextResponse.json(solutions);
   } catch (error) {
-    return NextResponse.json({ message: "Falha ao procurar o perfil" });
+    return NextResponse.json({ message: "Falha ao procurar as soluções" });
   }
 }
