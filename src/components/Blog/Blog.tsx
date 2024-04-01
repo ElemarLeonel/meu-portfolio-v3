@@ -1,4 +1,3 @@
-import { getPosts } from "@/app/_services/notion";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Post } from "@/app/_types/post";
@@ -7,8 +6,11 @@ import EmptyState from "../Errors/EmptyState";
 import Image from "next/image";
 
 export default async function Blog() {
-  const posts = await getPosts();
-  if (posts?.length !== 0) {
+  const posts = await fetch(`${process.env.APP_URL}/api/posts`)
+    .then((res) => res.json()
+    .catch((err) => console.log(err)));
+
+  if (posts) {
     return (
       <section className="bg-blue-600 py-20 px-10 rounded-tl-[200px] rounded-br-[200px] mt-16" id="blog">
         <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center">
@@ -25,7 +27,7 @@ export default async function Blog() {
           </div>
 
           <ul className="flex items-center justify-between gap-[30px] justify-items-center mt-36 w-full">
-            {posts?.map((post: Post | any, index: number) => (
+            {posts.map((post: Post | any, index: number) => (
               <li
                 key={index}
                 className="flex flex-col items-center justify-start max-w-[570px] w-full"
