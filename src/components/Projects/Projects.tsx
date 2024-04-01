@@ -1,13 +1,14 @@
 import { Badge } from "../ui/badge";
-import { getProjects } from "@/app/_services/notion";
 import { Project as ProjectType } from "@/app/_types/project";
 import { Project } from "./Project";
 import EmptyState from "../Errors/EmptyState";
 
 export default async function Projects() {
-  const projects = await getProjects();
+  const projects = await fetch(`${process.env.APP_URL}/api/projects`)
+    .then((res) => res.json()
+    .catch((err) => console.log(err)));
 
-  if (projects?.length !== 0) {
+  if (projects) {
     return (
       <section className="bg-blue-900 py-20 px-10">
         <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center" id="projects">
