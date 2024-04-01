@@ -1,12 +1,13 @@
 import Image from "next/image";
-import { getTechs } from "@/app/_services/notion";
 import { Tech } from "@/app/_types/tech";
 import EmptyState from "../Errors/EmptyState";
 
 export default async function Techs() {
-  const techs = await getTechs();
+  const techs = await fetch(`${process.env.APP_URL}/api/techs`)
+    .then((res) => res.json()
+    .catch((err) => console.log(err)));
 
-  if (techs?.length !== 0) {
+  if (techs) {
     return (
       <section className="flex flex-col items-center justify-center bg-blue-600 py-20 px-10" id="techs">
         <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center gap-4 lg:gap-[30px]">
