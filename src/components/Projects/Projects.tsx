@@ -10,7 +10,7 @@ export default async function Projects() {
   if (projects?.length !== 0) {
     return (
       <section className="bg-blue-900 py-20 px-10">
-        <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center">
+        <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center" id="projects">
           <Badge variant="icon">
             <i className="ri-flashlight-fill ri-3xl bg-gradient-to-b from-orange-500 to-orange-400 bg-clip-text text-transparent"></i>
             Top 3 projetos

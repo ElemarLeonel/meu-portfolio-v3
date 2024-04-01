@@ -10,7 +10,7 @@ export default async function Blog() {
   const posts = await getPosts();
   if (posts?.length !== 0) {
     return (
-      <section className="bg-blue-600 py-20 px-10 rounded-tl-[200px] rounded-br-[200px] mt-16">
+      <section className="bg-blue-600 py-20 px-10 rounded-tl-[200px] rounded-br-[200px] mt-16" id="blog">
         <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center">
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between w-full mt-36 gap-3 sm:gap-0">
             <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white">

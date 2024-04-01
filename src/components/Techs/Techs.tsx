@@ -8,7 +8,7 @@ export default async function Techs() {
 
   if (techs?.length !== 0) {
     return (
-      <section className="flex flex-col items-center justify-center bg-blue-600 py-20 px-10">
+      <section className="flex flex-col items-center justify-center bg-blue-600 py-20 px-10" id="techs">
         <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center gap-4 lg:gap-[30px]">
           <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white text-center">
             Tecnologias que <span className="text-orange-500">utilizo</span>
