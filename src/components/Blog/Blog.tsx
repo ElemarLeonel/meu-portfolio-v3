@@ -9,6 +9,10 @@ export default async function Blog() {
   const posts = await fetch(`${process.env.APP_URL}/api/posts`)
     .then((res) => res.json()
     .catch((err) => console.log(err)));
+  
+  if(!posts) {
+    return <EmptyState title={"Sem artigos!"} section={"blog"} />
+  }
 
   if (posts) {
     return (
@@ -34,7 +38,7 @@ export default async function Blog() {
               >
                 <div className="flex flex-col items-center justify-center">
                   <Image
-                    src={post.image.files[0].file.url}
+                    src={post?.image.files[0]?.file.url}
                     alt={`Imagem do post ` + post.title.title[0].plain_text}
                     className="h-[400px] object-cover object-center"
                     width={570}
@@ -43,17 +47,17 @@ export default async function Blog() {
                 </div>
                 <div className="flex flex-col-reverse sm:flex-row items-center justify-center sm:justify-between w-full mt-12 mb-10 px-1.5 gap-2.5 sm:gap-0">
                   <span className="bg-blue-900 rounded-full px-6 py-3 uppercase text-white font-bold font-circularstd">
-                    {post.category.select.name}
+                    {post?.category.select.name}
                   </span>
                   <span className="font-circularstd text-ivory-white/60 text-base">
                     {convertDate(post.published_date.date.start)}
                   </span>
                 </div>
                 <h3 className="font-bold font-spacegrotesk text-ivory-white text-2xl mb-10 text-center sm:text-start">
-                  {post.title.title[0].plain_text}
+                  {post?.title.title[0].plain_text}
                 </h3>
                 <Link
-                  href={`/blog/${post.slug.rich_text[0].plain_text}`}
+                  href={`/blog/${post?.slug.rich_text[0]?.plain_text}`}
                   className="inline-flex items-center justify-center self-center sm:self-start gap-3 font-circularstd font-normal text-xl text-orange-500 hover:underline"
                 >
                   Saiba mais
@@ -65,6 +69,4 @@ export default async function Blog() {
       </section>
     );
   }
-
-  return <EmptyState title={"Nenhum artigo encontrado"} section={"blog"} />;
 }
