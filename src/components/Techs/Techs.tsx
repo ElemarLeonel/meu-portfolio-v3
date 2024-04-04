@@ -7,6 +7,10 @@ export default async function Techs() {
     .then((res) => res.json()
     .catch((err) => console.log(err)));
 
+  if(!techs) {
+    return <EmptyState title={"Sem tecnologias!"} section="techs" />;
+  }
+
   if (techs) {
     return (
       <section className="flex flex-col items-center justify-center bg-blue-600 py-20 px-10" id="techs">
@@ -24,7 +28,7 @@ export default async function Techs() {
           {techs.map((tech: Tech, index: number) => (
             <div
               key={index}
-              className="bg-blue-900 flex flex-col items-center justify-center gap-10 px-0 md:px-[100px] py-[72px] min-w-[250px] 
+              className="bg-blue-900 flex flex-col items-center justify-center gap-10 px-0 md:px-[100px] py-[72px] min-w-full sm:min-w-[250px] 
           border-2 border-blue-900 hover:border-orange-500 rounded-[10px] hover:drop-shadow-tech"
             >
               <Image
@@ -42,5 +46,4 @@ export default async function Techs() {
       </section>
     );
   }
-  return <EmptyState title={"Sem tecnologias!"} section="techs" />;
 }
