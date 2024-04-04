@@ -16,10 +16,10 @@ export default async function Blog() {
 
   if (posts) {
     return (
-      <section className="bg-blue-600 py-20 px-10 rounded-tl-[200px] rounded-br-[200px] mt-16" id="blog">
-        <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center">
-          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between w-full mt-36 gap-3 sm:gap-0">
-            <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white">
+      <section className="bg-blue-600 py-10 md:py-20 px-5 md:px-10 rounded-tl-[100px] md:rounded-tl-[200px] rounded-br-[100px] md:rounded-br-[200px] mt-16" id="blog">
+        <div className="max-w-full md:max-w-screen-xl mx-auto flex flex-col items-center justify-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between w-full mt-20 md:mt-36 gap-8 sm:gap-0">
+            <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white text-center md:text-start">
               Artigos <span className="text-orange-500">&</span> Novidades
             </h2>
             <Button variant={"default"} className="rounded-full">
@@ -30,7 +30,7 @@ export default async function Blog() {
             </Button>
           </div>
 
-          <ul className="flex items-center justify-between gap-[30px] justify-items-center mt-36 w-full">
+          <ul className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-[30px] justify-items-center mt-36 w-full">
             {posts.map((post: Post | any, index: number) => (
               <li
                 key={index}
@@ -46,19 +46,19 @@ export default async function Blog() {
                   />
                 </div>
                 <div className="flex flex-col-reverse sm:flex-row items-center justify-center sm:justify-between w-full mt-12 mb-10 px-1.5 gap-2.5 sm:gap-0">
-                  <span className="bg-blue-900 rounded-full px-6 py-3 uppercase text-white font-bold font-circularstd">
+                  <span className="bg-blue-900 rounded-full px-6 py-3 uppercase text-white font-bold font-circularstd text-sm md:text-base">
                     {post?.category.select.name}
                   </span>
-                  <span className="font-circularstd text-ivory-white/60 text-base">
+                  <span className="font-circularstd text-ivory-white/60 text-sm md:text-base">
                     {convertDate(post.published_date.date.start)}
                   </span>
                 </div>
-                <h3 className="font-bold font-spacegrotesk text-ivory-white text-2xl mb-10 text-center sm:text-start">
+                <h3 className="font-bold font-spacegrotesk text-ivory-white text-lg md:text-2xl mb-10 text-center sm:text-start">
                   {post?.title.title[0].plain_text}
                 </h3>
                 <Link
                   href={`/blog/${post?.slug.rich_text[0]?.plain_text}`}
-                  className="inline-flex items-center justify-center self-center sm:self-start gap-3 font-circularstd font-normal text-xl text-orange-500 hover:underline"
+                  className="inline-flex items-center justify-center self-center sm:self-start gap-3 font-circularstd font-normal text-base md:text-xl text-orange-500 hover:underline"
                 >
                   Saiba mais
                 </Link>
