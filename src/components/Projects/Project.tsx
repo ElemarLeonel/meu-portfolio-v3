@@ -38,7 +38,7 @@ export function Project({ project }: ProjectProps) {
         <h3 className="font-bold font-spacegrotesk text-3xl text-white mt-8 mb-6 text-center lg:text-start self-center lg:self-start">
           {project.title.title[0]?.plain_text}
         </h3>
-        <p className="font-circularstd text-ivory-white/60 text-base my-1.5">
+        <p className="font-circularstd text-ivory-white/60 text-sm md:text-base my-1.5">
           {project.description.rich_text[0]?.plain_text}
         </p>
         <div className="flex flex-row flex-wrap items-start justify-center lg:justify-start gap-4 w-full mt-8">
