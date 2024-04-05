@@ -19,35 +19,35 @@ export default function Header() {
       <Logo />
       <NavigationMenu className="hidden md:flex">
         <NavigationMenuList>
-          <NavigationMenuItem className="text-white hover:bg-blue-700 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
+          <NavigationMenuItem className="text-white hover:bg-blue-600 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
             <Link href="/" legacyBehavior passHref>
               <NavigationMenuLink className="text-sm md:text-md">
                 Início
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          <NavigationMenuItem className="text-white hover:bg-blue-700 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
+          <NavigationMenuItem className="text-white hover:bg-blue-600 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
             <Link href="#about" legacyBehavior passHref>
               <NavigationMenuLink className="text-sm md:text-md text-center">
                 Sobre Mim
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          <NavigationMenuItem className="text-white hover:bg-blue-700 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
+          <NavigationMenuItem className="text-white hover:bg-blue-600 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
             <Link href="#techs" legacyBehavior passHref>
               <NavigationMenuLink className="text-sm md:text-md">
                 Tecnologias
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          <NavigationMenuItem className="text-white hover:bg-blue-700 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
+          <NavigationMenuItem className="text-white hover:bg-blue-600 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
             <Link href="#projects" legacyBehavior passHref>
               <NavigationMenuLink className="text-sm md:text-md">
                 Projetos
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          <NavigationMenuItem className="text-white hover:bg-blue-700 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
+          <NavigationMenuItem className="text-white hover:bg-blue-600 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
             <Link href="#blog" legacyBehavior passHref>
               <NavigationMenuLink className="text-sm md:text-md">
                 Blog
