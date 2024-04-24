@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { getSolutions } from "@/app/_services/notion";
 import { Solution } from "@/app/_types/solution";
 import IconPage from "/public/images/icon-page.svg";
 import EmptyState from "../Errors/EmptyState";
@@ -27,7 +26,7 @@ export default async function Solutions() {
                 className="flex flex-col items-start justify-center space-y-5 bg-transparent hover:bg-blue-600 py-6 px-4 rounded-md transitions max-w-full md:max-w-[270px] border-2 border-blue-600"
               >
                 <Image
-                  src={solution.icon.files[0]?.file.url || IconPage.src}
+                  src={solution.icon?.files[0]?.file.url || IconPage.src}
                   alt={`Solução ` + solution.name.title[0].plain_text}
                   width={36}
                   height={36}
