@@ -74,6 +74,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/images/favicon.ico" sizes="any" />
+      </head>
       <body
         suppressHydrationWarning={true}
         className={`${sg.variable} ${cs.variable}`}
