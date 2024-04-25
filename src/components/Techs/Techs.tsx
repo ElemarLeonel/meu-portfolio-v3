@@ -1,11 +1,12 @@
-import Image from "next/image";
 import { Tech } from "@/app/_types/tech";
 import EmptyState from "../Errors/EmptyState";
+import Image from "next/image";
 
 export default async function Techs() {
-  const techs = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/techs`
-  ).then((res) => res.json().catch((err) => console.log(err)));
+  const appURL = process.env.APP_URL;
+  const techs = await fetch(`${appURL}/api/techs`).then((res) =>
+    res.json().catch((err) => console.log(err))
+  );
 
   if (!techs) {
     return <EmptyState title={"Sem tecnologias!"} section="techs" />;
@@ -36,7 +37,7 @@ export default async function Techs() {
             >
               <Image
                 src={tech.icon.files[0]?.file.url}
-                alt={tech.name.title[0].plain_text}
+                alt={tech.name.title[0]?.plain_text}
                 width={72}
                 height={72}
               />

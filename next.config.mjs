@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
-const { AMAZON_FILES_S3_URL, NEXT_PUBLIC_APP_URL } = process.env;
+const { AMAZON_FILES_S3_URL } = process.env;
 
 const nextConfig = {
-  env: {
-    NEXT_PUBLIC_APP_URL: NEXT_PUBLIC_APP_URL,
-  },
   reactStrictMode: true,
   images: {
     dangerouslyAllowSVG: true,

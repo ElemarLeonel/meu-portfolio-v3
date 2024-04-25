@@ -1,10 +1,10 @@
-import Image from "next/image";
 import { Solution } from "@/app/_types/solution";
 import IconPage from "/public/images/icon-page.svg";
 import EmptyState from "../Errors/EmptyState";
+import Image from "next/image";
 
 export default async function Solutions() {
-  const appURL = process.env.NEXT_PUBLIC_APP_URL;
+  const appURL = process.env.APP_URL;
   const solutions = await fetch(`${appURL}/api/solutions`).then((res) =>
     res.json().catch((err) => console.log(err))
   );

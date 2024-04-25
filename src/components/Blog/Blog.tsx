@@ -6,9 +6,10 @@ import EmptyState from "../Errors/EmptyState";
 import Image from "next/image";
 
 export default async function Blog() {
-  const posts = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/posts`
-  ).then((res) => res.json().catch((err) => console.log(err)));
+  const appURL = process.env.APP_URL;
+  const posts = await fetch(`${appURL}/api/posts`).then((res) =>
+    res.json().catch((err) => console.log(err))
+  );
 
   if (!posts) {
     return <EmptyState title={"Sem artigos!"} section={"blog"} />;

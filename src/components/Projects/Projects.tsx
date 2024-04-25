@@ -4,9 +4,10 @@ import { Project } from "./Project";
 import EmptyState from "../Errors/EmptyState";
 
 export default async function Projects() {
-  const projects = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/projects`
-  ).then((res) => res.json().catch((err) => console.log(err)));
+  const appURL = process.env.APP_URL;
+  const projects = await fetch(`${appURL}/api/projects`).then((res) =>
+    res.json().catch((err) => console.log(err))
+  );
 
   if (projects) {
     return (
