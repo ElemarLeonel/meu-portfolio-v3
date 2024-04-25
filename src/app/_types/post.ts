@@ -38,6 +38,12 @@ export interface Active {
   checkbox: boolean;
 }
 
+export interface ShowInHome {
+  id: string;
+  type: string;
+  checkbox: boolean;
+}
+
 export interface Slug {
   id: string;
   type: string;
