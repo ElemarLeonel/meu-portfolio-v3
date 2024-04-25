@@ -5,6 +5,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     dangerouslyAllowSVG: true,
+    unoptimized: true,
+    domains: ["http://localhost:3000", "https://elemarleonel.dev"],
     remotePatterns: [
       {
         protocol: "https",
