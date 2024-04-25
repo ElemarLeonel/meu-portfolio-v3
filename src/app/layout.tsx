@@ -48,7 +48,10 @@ const cs = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "%s | Elemar Leonel",
+  title: {
+    default: "Elemar Leonel",
+    template: "%s | Elemar Leonel",
+  },
   description: "Meu portfólio como desenvolvedor",
   keywords: ["desenvolvedor", "frontend", "backend", "ui/ux", "portfolio"],
   authors: [{ name: "Elemar Leonel" }],
