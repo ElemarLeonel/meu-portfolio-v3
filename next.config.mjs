@@ -6,11 +6,15 @@ const nextConfig = {
   images: {
     dangerouslyAllowSVG: true,
     unoptimized: true,
-    domains: ["http://localhost:3000", "https://elemarleonel.dev"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: AMAZON_FILES_S3_URL,
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "elemarleonel.dev/api/",
         pathname: "**",
       },
     ],
