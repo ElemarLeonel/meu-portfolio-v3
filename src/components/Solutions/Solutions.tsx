@@ -4,9 +4,13 @@ import IconPage from "/public/images/icon-page.svg";
 import EmptyState from "../Errors/EmptyState";
 
 export default async function Solutions() {
-  const solutions = await fetch(`${process.env.APP_URL}/api/solutions`)
-    .then((res) => res.json()
-    .catch((err) => console.log(err)));
+  const appURL = process.env.APP_URL;
+  const solutions = await fetch(`${appURL}/api/solutions`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache: "no-store",
+  }).then((res) => res.json().catch((err) => console.log(err)));
 
   if (solutions) {
     return (
