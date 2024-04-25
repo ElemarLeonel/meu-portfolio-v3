@@ -3,17 +3,20 @@ import { Tech } from "@/app/_types/tech";
 import EmptyState from "../Errors/EmptyState";
 
 export default async function Techs() {
-  const techs = await fetch(`${process.env.APP_URL}/api/techs`)
-    .then((res) => res.json()
-    .catch((err) => console.log(err)));
+  const techs = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/techs`
+  ).then((res) => res.json().catch((err) => console.log(err)));
 
-  if(!techs) {
+  if (!techs) {
     return <EmptyState title={"Sem tecnologias!"} section="techs" />;
   }
 
   if (techs) {
     return (
-      <section className="flex flex-col items-center justify-center bg-blue-600 py-20 px-10" id="techs">
+      <section
+        className="flex flex-col items-center justify-center bg-blue-600 py-20 px-10"
+        id="techs"
+      >
         <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center gap-4 lg:gap-[30px]">
           <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white text-center">
             Tecnologias que <span className="text-orange-500">utilizo</span>
