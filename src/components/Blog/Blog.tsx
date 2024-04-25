@@ -6,17 +6,20 @@ import EmptyState from "../Errors/EmptyState";
 import Image from "next/image";
 
 export default async function Blog() {
-  const posts = await fetch(`${process.env.APP_URL}/api/posts`)
-    .then((res) => res.json()
-    .catch((err) => console.log(err)));
-  
-  if(!posts) {
-    return <EmptyState title={"Sem artigos!"} section={"blog"} />
+  const posts = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/posts`
+  ).then((res) => res.json().catch((err) => console.log(err)));
+
+  if (!posts) {
+    return <EmptyState title={"Sem artigos!"} section={"blog"} />;
   }
 
   if (posts) {
     return (
-      <section className="bg-blue-600 py-10 md:py-20 px-5 md:px-10 rounded-tl-[100px] md:rounded-tl-[200px] rounded-br-[100px] md:rounded-br-[200px] mt-16" id="blog">
+      <section
+        className="bg-blue-600 py-10 md:py-20 px-5 md:px-10 rounded-tl-[100px] md:rounded-tl-[200px] rounded-br-[100px] md:rounded-br-[200px] mt-16"
+        id="blog"
+      >
         <div className="max-w-full md:max-w-screen-xl mx-auto flex flex-col items-center justify-center">
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between w-full mt-20 md:mt-36 gap-8 sm:gap-0">
             <h2 className="font-bold font-spacegrotesk text-3xl md:text-4xl text-white text-center md:text-start">
