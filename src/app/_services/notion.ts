@@ -99,16 +99,44 @@ export async function getProjects() {
   }
 }
 
-export async function getPosts(): Promise<ObjectNotion[] | null> {
+export async function getPostsHome(): Promise<ObjectNotion[] | null> {
   try {
     const databaseId = "eb004556-aa8c-4cd9-af72-a4d2b77d035b";
 
     const response = await notion.databases.query({
       database_id: databaseId,
       filter: {
-        property: "active",
-        checkbox: { equals: true },
+        and: [
+          { property: "active", checkbox: { equals: true } },
+          { property: "show_in_home", checkbox: { equals: true } },
+        ],
       },
+      sorts: [
+        {
+          property: "published_date",
+          direction: "descending",
+        },
+      ],
+    });
+
+    const posts = response.results.map((post: ObjectNotion) => post.properties);
+    console.log(posts);
+
+    return posts;
+  } catch (error: unknown) {
+    handleNotionError(error);
+
+    return null;
+  }
+}
+
+export async function getPostsBlog(): Promise<ObjectNotion[] | null> {
+  try {
+    const databaseId = "eb004556-aa8c-4cd9-af72-a4d2b77d035b";
+
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      filter: { property: "active", checkbox: { equals: true } },
       sorts: [
         {
           property: "published_date",

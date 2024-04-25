@@ -1,9 +1,9 @@
-import { getPostsBlog } from "@/app/_services/notion";
+import { getPostsHome } from "@/app/_services/notion";
 import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const posts = await getPostsBlog();
+    const posts = await getPostsHome();
 
     return NextResponse.json(posts);
   } catch (error) {

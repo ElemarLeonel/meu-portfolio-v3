@@ -5,12 +5,7 @@ import { convertDate } from "@/app/_utils/functions";
 import EmptyState from "../Errors/EmptyState";
 import Image from "next/image";
 
-export default async function Blog() {
-  const appURL = process.env.APP_URL;
-  const posts = await fetch(`${appURL}/api/posts`).then((res) =>
-    res.json().catch((err) => console.log(err))
-  );
-
+export default async function Blog({ posts }: { posts: Post[] }) {
   if (!posts) {
     return <EmptyState title={"Sem artigos!"} section={"blog"} />;
   }
@@ -18,7 +13,7 @@ export default async function Blog() {
   if (posts) {
     return (
       <section
-        className="bg-blue-600 py-10 md:py-20 px-5 md:px-10 rounded-tl-[100px] md:rounded-tl-[200px] rounded-br-[100px] md:rounded-br-[200px] mt-16"
+        className="bg-blue-600 py-10 md:py-20 px-5 md:px-10 rounded-tl-[100px] md:rounded-tl-[200px] rounded-br-[100px] md:rounded-br-[200px]"
         id="blog"
       >
         <div className="max-w-full md:max-w-screen-xl mx-auto flex flex-col items-center justify-center">
@@ -35,39 +30,40 @@ export default async function Blog() {
           </div>
 
           <ul className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-[30px] justify-items-center mt-36 w-full">
-            {posts.map((post: Post | any, index: number) => (
-              <li
-                key={index}
-                className="flex flex-col items-center justify-start max-w-[570px] w-full"
-              >
-                <div className="flex flex-col items-center justify-center">
-                  <Image
-                    src={post?.image.files[0]?.file.url}
-                    alt={`Imagem do post ` + post.title.title[0].plain_text}
-                    className="h-[400px] object-cover object-center"
-                    width={570}
-                    height={400}
-                  />
-                </div>
-                <div className="flex flex-col-reverse sm:flex-row items-center justify-center sm:justify-between w-full mt-12 mb-10 px-1.5 gap-2.5 sm:gap-0">
-                  <span className="bg-blue-900 rounded-full px-6 py-3 uppercase text-white font-bold font-circularstd text-sm md:text-base">
-                    {post?.category.select.name}
-                  </span>
-                  <span className="font-circularstd text-ivory-white/60 text-sm md:text-base">
-                    {convertDate(post.published_date.date.start)}
-                  </span>
-                </div>
-                <h3 className="font-bold font-spacegrotesk text-ivory-white text-lg md:text-2xl mb-10 text-center sm:text-start">
-                  {post?.title.title[0].plain_text}
-                </h3>
-                <Link
-                  href={`/blog/${post?.slug.rich_text[0]?.plain_text}`}
-                  className="inline-flex items-center justify-center self-center sm:self-start gap-3 font-circularstd font-normal text-base md:text-xl text-orange-500 hover:underline"
+            {posts &&
+              posts.map((post: Post | any, index: number) => (
+                <li
+                  key={index}
+                  className="flex flex-col items-center justify-start max-w-[570px] w-full"
                 >
-                  Saiba mais
-                </Link>
-              </li>
-            ))}
+                  <div className="flex flex-col items-center justify-center">
+                    <Image
+                      src={post?.image.files[0]?.file.url}
+                      alt={`Imagem do post ` + post.title.title[0].plain_text}
+                      className="h-[400px] object-cover object-center"
+                      width={570}
+                      height={400}
+                    />
+                  </div>
+                  <div className="flex flex-col-reverse sm:flex-row items-center justify-center sm:justify-between w-full mt-12 mb-10 px-1.5 gap-2.5 sm:gap-0">
+                    <span className="bg-blue-900 rounded-full px-6 py-3 uppercase text-white font-bold font-circularstd text-sm md:text-base">
+                      {post?.category.select?.name}
+                    </span>
+                    <span className="font-circularstd text-ivory-white/60 text-sm md:text-base">
+                      {convertDate(post.published_date.date.start)}
+                    </span>
+                  </div>
+                  <h3 className="font-bold font-spacegrotesk text-ivory-white text-lg md:text-2xl mb-10 text-center sm:text-start">
+                    {post?.title.title[0].plain_text}
+                  </h3>
+                  <Link
+                    href={`/blog/${post?.slug.rich_text[0]?.plain_text}`}
+                    className="inline-flex items-center justify-center self-center sm:self-start gap-3 font-circularstd font-normal text-base md:text-xl text-orange-500 hover:underline"
+                  >
+                    Saiba mais
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
       </section>

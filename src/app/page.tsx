@@ -14,7 +14,12 @@ export const metadata: Metadata = {
   title: "Home",
 };
 
-export default function Home() {
+export default async function Home() {
+  const appURL = process.env.APP_URL;
+  const posts = await fetch(`${appURL}/api/posts-home`).then((res) =>
+    res.json().catch((err) => console.log(err))
+  );
+
   return (
     <main className="bg-blue-900 w-full relative">
       <div
@@ -30,7 +35,7 @@ export default function Home() {
       <Solutions />
       <Techs />
       <Projects />
-      <Blog />
+      <Blog posts={posts} />
       <Footer />
       <ScrollToTopButton />
     </main>
