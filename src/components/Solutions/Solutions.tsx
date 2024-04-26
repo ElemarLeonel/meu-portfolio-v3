@@ -5,9 +5,13 @@ import Image from "next/image";
 
 export default async function Solutions() {
   const appURL = process.env.APP_URL;
-  const solutions = await fetch(`${appURL}/api/solutions`).then((res) =>
-    res.json().catch((err) => console.log(err))
-  );
+  const solutions = await fetch(`${appURL}/api/solutions`, {
+    next: {
+      revalidate: 3600,
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 
   if (solutions) {
     return (
@@ -27,7 +31,7 @@ export default async function Solutions() {
                 className="flex flex-col items-start justify-center space-y-5 bg-transparent hover:bg-blue-600 py-6 px-4 rounded-md transitions max-w-full md:max-w-[270px] border-2 border-blue-600"
               >
                 <Image
-                  src={solution.icon?.files[0]?.file.url || IconPage.src}
+                  src={solution.icon.files[0]?.file.url || IconPage.src}
                   alt={`Solução ` + solution.name.title[0].plain_text}
                   width={36}
                   height={36}

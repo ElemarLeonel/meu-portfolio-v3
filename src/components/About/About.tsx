@@ -5,9 +5,13 @@ import { breakText } from "@/app/_utils/functions";
 import Link from "next/link";
 
 export default async function About() {
-  const profile = await fetch(`${process.env.APP_URL}/api/profile`).then(
-    (res) => res.json().catch((err) => console.log(err))
-  );
+  const profile = await fetch(`${process.env.APP_URL}/api/profile`, {
+    next: {
+      revalidate: 3600,
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 
   const history = profile?.history.rich_text[0]?.plain_text;
   const yearsOfExperience = profile?.years_of_experience.number;

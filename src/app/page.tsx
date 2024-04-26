@@ -16,9 +16,13 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const appURL = process.env.APP_URL;
-  const posts = await fetch(`${appURL}/api/posts-home`).then((res) =>
-    res.json().catch((err) => console.log(err))
-  );
+  const posts = await fetch(`${appURL}/api/posts-home`, {
+    next: {
+      revalidate: 3600,
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 
   return (
     <main className="bg-blue-900 w-full relative">

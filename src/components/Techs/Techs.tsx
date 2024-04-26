@@ -4,9 +4,13 @@ import Image from "next/image";
 
 export default async function Techs() {
   const appURL = process.env.APP_URL;
-  const techs = await fetch(`${appURL}/api/techs`).then((res) =>
-    res.json().catch((err) => console.log(err))
-  );
+  const techs = await fetch(`${appURL}/api/techs`, {
+    next: {
+      revalidate: 3600,
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 
   if (!techs) {
     return <EmptyState title={"Sem tecnologias!"} section="techs" />;

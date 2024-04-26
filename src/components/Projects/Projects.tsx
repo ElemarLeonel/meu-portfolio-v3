@@ -5,9 +5,13 @@ import EmptyState from "../Errors/EmptyState";
 
 export default async function Projects() {
   const appURL = process.env.APP_URL;
-  const projects = await fetch(`${appURL}/api/projects`).then((res) =>
-    res.json().catch((err) => console.log(err))
-  );
+  const projects = await fetch(`${appURL}/api/projects`, {
+    next: {
+      revalidate: 3600,
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 
   if (projects) {
     return (
