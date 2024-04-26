@@ -1,6 +1,7 @@
 import { ObjectNotion } from "../_types/objectNotion";
 import { Profile } from "../_types/profile";
 import { handleNotionError } from "./notionErrorHandler";
+import { NotionToMarkdown } from "notion-to-md";
 
 const { Client } = require("@notionhq/client");
 
@@ -120,7 +121,6 @@ export async function getPostsHome(): Promise<ObjectNotion[] | null> {
     });
 
     const posts = response.results.map((post: ObjectNotion) => post.properties);
-    console.log(posts);
 
     return posts;
   } catch (error: unknown) {
@@ -148,6 +148,34 @@ export async function getPostsBlog(): Promise<ObjectNotion[] | null> {
     const posts = response.results.map((post: ObjectNotion) => post.properties);
 
     return posts;
+  } catch (error: unknown) {
+    handleNotionError(error);
+
+    return null;
+  }
+}
+
+export async function getPost(slug: string) {
+  try {
+    const databaseId = "eb004556-aa8c-4cd9-af72-a4d2b77d035b";
+
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      filter: { property: "slug", rich_text: { equals: slug } },
+    });
+
+    const pageId = response.results[0].id;
+
+    const n2m = new NotionToMarkdown({ notionClient: notion });
+
+    const mdblocks = await n2m.pageToMarkdown(pageId);
+    const mdString = n2m.toMarkdownString(mdblocks);
+    const content = mdString.parent;
+
+    return {
+      title: response.results[0].properties.title.title[0].plain_text,
+      content,
+    };
   } catch (error: unknown) {
     handleNotionError(error);
 
