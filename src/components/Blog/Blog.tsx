@@ -13,7 +13,7 @@ export default async function Blog({ posts }: { posts: Post[] }) {
   if (posts) {
     return (
       <section
-        className="bg-blue-600 py-10 md:py-20 px-5 md:px-10 rounded-tl-[100px] md:rounded-tl-[200px] rounded-br-[100px] md:rounded-br-[200px]"
+        className="bg-blue-600 py-10 md:py-20 px-5 md:px-10 rounded-tl-[100px] md:rounded-tl-[200px] rounded-br-[100px] md:rounded-br-[200px] w-full"
         id="blog"
       >
         <div className="max-w-full md:max-w-screen-xl mx-auto flex flex-col items-center justify-center">
