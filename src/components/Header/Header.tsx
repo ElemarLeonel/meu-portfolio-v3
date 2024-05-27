@@ -8,15 +8,14 @@ import {
   ListItem,
 } from "@/components/ui/navigation-menu";
 
-import { Button } from "@/components/ui/button";
-
 import Link from "next/link";
 import Logo from "@/components/Logo/Logo";
+import AuthButton from "../Admin/AuthButton";
 
 export default function Header() {
   return (
     <header className="flex flex-row items-center justify-between gap-2.5 lg:gap-5 container h-16">
-      <Logo />
+      <Logo color="white" size="xl" />
       <NavigationMenu className="hidden md:flex">
         <NavigationMenuList>
           <NavigationMenuItem className="text-white hover:bg-blue-600 transitions font-circularstd font-medium px-4 lg:px-5 py-2 lg:py-2.5 rounded-md cursor-pointer">
@@ -53,6 +52,9 @@ export default function Header() {
                 Blog
               </NavigationMenuLink>
             </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <AuthButton />
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
